@@ -15,11 +15,10 @@ return [
     |
     */
 
-    'stateful' => explode(',', env('SANCTUM_STATEFUL_DOMAINS', sprintf(
-        '%s%s',
-        'localhost,localhost:3000,127.0.0.1,127.0.0.1:8000,::1',
-        Sanctum::currentApplicationUrlWithPort(),
-        // Sanctum::currentRequestHost(),
+    'stateful' => array_filter(explode(',', env('SANCTUM_STATEFUL_DOMAINS', 
+        env('FRONTEND_URL', 'http://localhost:3000') . ',' .
+        env('APP_URL', 'http://localhost') . ',' .
+        'localhost:3000,127.0.0.1:3000'
     ))),
 
     /*
@@ -35,7 +34,7 @@ return [
     */
 
     'guard' => ['web'],
-
+ 
     /*
     |--------------------------------------------------------------------------
     | Expiration Minutes

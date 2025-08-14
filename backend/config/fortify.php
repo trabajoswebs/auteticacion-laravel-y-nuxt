@@ -117,6 +117,23 @@ return [
     'limiters' => [
         'login' => 'login',
         'two-factor' => 'two-factor',
+        'password-reset' => 'password-reset',
+    ],
+
+    /*
+    | Password Validation Rules
+    |--------------------------------------------------------------------------
+    |
+    | Configure password validation rules to ensure strong passwords.
+    |
+    */
+
+    'password_validation' => [
+        'min_length' => env('PASSWORD_MIN_LENGTH', 8),
+        'require_uppercase' => env('PASSWORD_REQUIRE_UPPERCASE', true),
+        'require_lowercase' => env('PASSWORD_REQUIRE_LOWERCASE', true),
+        'require_numbers' => env('PASSWORD_REQUIRE_NUMBERS', true),
+        'require_symbols' => env('PASSWORD_REQUIRE_SYMBOLS', true),
     ],
 
     /*
